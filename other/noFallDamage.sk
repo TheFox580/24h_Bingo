@@ -1,3 +1,0 @@
-on damage:
-    if damage cause is fall:
-        cancel event
