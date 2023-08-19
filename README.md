@@ -1,3 +1,6 @@
+# ARCHIVED
+- This project has been archived, as i am not gonna be updating it, you can always create an [issue](https://github.com/TheFox580/24h_Bingo/issues) but i probably won't be updating it.
+
 # 24h_Bingo
 This a Bingo miniame i've made in less than 24h, there are some bugs, but i like to call them "features"
 
