@@ -1,7 +1,0 @@
-on death:
-    if victim is a player:
-        force victim to respawn
-        if attacker is a player:
-            make console execute command "tellraw @a [{""text"":""[""},{""text"":""🗡"",""bold"":""true"",""color"":""red""},{""text"":""] "",""color"":""white""},{""translate"":""%%nox_uuid%%%victim's uuid%,false,0,0,1.0""},{""text"":"" %victim% was killed by ""},{""translate"":""%%nox_uuid%%%attacker's uuid%,false,0,0,1.0""},{""text"":"" %attacker%""}]"
-            make console execute command "title %victim% title [{""text"":""[""},{""text"":""🗡"",""bold"":""true"",""color"":""red""},{""text"":""] "",""color"":""white""},{""translate"":""%%nox_uuid%%%attacker's uuid%,false,0,0,1.0""},{""text"":"" %attacker%""}]"
-            make console execute command "title %attacker% title [{""text"":""[""},{""text"":""🗡"",""bold"":""true"",""color"":""red""},{""text"":""] "",""color"":""white""},{""translate"":""%%nox_uuid%%%victim's uuid%,false,0,0,1.0""},{""text"":"" %victim%""}]"
