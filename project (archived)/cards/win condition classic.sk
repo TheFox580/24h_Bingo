@@ -1,0 +1,114 @@
+every tick:
+    if {bingo.mode} = "Classic":
+        if {timer.status} = "Game":
+            loop all players:
+                if {bingo.size} = 3: # Check for finished rows in 3x3
+                    if {bingo.tile.1.%loop-player's uuid%} and {bingo.tile.2.%loop-player's uuid%} and {bingo.tile.3.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.4.%loop-player's uuid%} and {bingo.tile.5.%loop-player's uuid%} and {bingo.tile.6.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.7.%loop-player's uuid%} and {bingo.tile.8.%loop-player's uuid%} and {bingo.tile.9.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    #now checking for finished columns in 3x3
+                    if {bingo.tile.1.%loop-player's uuid%} and {bingo.tile.4.%loop-player's uuid%} and {bingo.tile.7.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.2.%loop-player's uuid%} and {bingo.tile.5.%loop-player's uuid%} and {bingo.tile.8.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.3.%loop-player's uuid%} and {bingo.tile.6.%loop-player's uuid%} and {bingo.tile.9.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    #now checking for finished diagonals in 3x3
+                    if {bingo.tile.1.%loop-player's uuid%} and {bingo.tile.5.%loop-player's uuid%} and {bingo.tile.9.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.3.%loop-player's uuid%} and {bingo.tile.5.%loop-player's uuid%} and {bingo.tile.7.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+
+                else if {bingo.size} = 4: # Check for finished rows in 4x4
+                    if {bingo.tile.1.%loop-player's uuid%} and {bingo.tile.2.%loop-player's uuid%} and {bingo.tile.3.%loop-player's uuid%} and {bingo.tile.4.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.5.%loop-player's uuid%} and {bingo.tile.6.%loop-player's uuid%} and {bingo.tile.7.%loop-player's uuid%} and {bingo.tile.8.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.9.%loop-player's uuid%} and {bingo.tile.10.%loop-player's uuid%} and {bingo.tile.11.%loop-player's uuid%} and {bingo.tile.12.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.13.%loop-player's uuid%} and {bingo.tile.14.%loop-player's uuid%} and {bingo.tile.15.%loop-player's uuid%} and {bingo.tile.16.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    #now checking for finished columns in 4x4
+                    if {bingo.tile.1.%loop-player's uuid%} and {bingo.tile.5.%loop-player's uuid%} and {bingo.tile.9.%loop-player's uuid%} and {bingo.tile.13.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.2.%loop-player's uuid%} and {bingo.tile.6.%loop-player's uuid%} and {bingo.tile.10.%loop-player's uuid%} and {bingo.tile.14.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.3.%loop-player's uuid%} and {bingo.tile.7.%loop-player's uuid%} and {bingo.tile.11.%loop-player's uuid%} and {bingo.tile.15.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.4.%loop-player's uuid%} and {bingo.tile.8.%loop-player's uuid%} and {bingo.tile.12.%loop-player's uuid%} and {bingo.tile.16.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    #now checking for finished diagonals in 4x4
+                    if {bingo.tile.1.%loop-player's uuid%} and {bingo.tile.6.%loop-player's uuid%} and {bingo.tile.11.%loop-player's uuid%} and {bingo.tile.16.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.4.%loop-player's uuid%} and {bingo.tile.7.%loop-player's uuid%} and {bingo.tile.10.%loop-player's uuid%} and {bingo.tile.13.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+
+                else if {bingo.size} = 5: # Check for finished rows in 5x5
+                    if {bingo.tile.1.%loop-player's uuid%} and {bingo.tile.2.%loop-player's uuid%} and {bingo.tile.3.%loop-player's uuid%} and {bingo.tile.4.%loop-player's uuid%} and {bingo.tile.5.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.6.%loop-player's uuid%} and {bingo.tile.7.%loop-player's uuid%} and {bingo.tile.8.%loop-player's uuid%} and {bingo.tile.9.%loop-player's uuid%} and {bingo.tile.10.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.11.%loop-player's uuid%} and {bingo.tile.12.%loop-player's uuid%} and {bingo.tile.13.%loop-player's uuid%} and {bingo.tile.14.%loop-player's uuid%} and {bingo.tile.15.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.16.%loop-player's uuid%} and {bingo.tile.17.%loop-player's uuid%} and {bingo.tile.18.%loop-player's uuid%} and {bingo.tile.19.%loop-player's uuid%} and {bingo.tile.20.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.21.%loop-player's uuid%} and {bingo.tile.22.%loop-player's uuid%} and {bingo.tile.23.%loop-player's uuid%} and {bingo.tile.24.%loop-player's uuid%} and {bingo.tile.25.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    #now checking for finished columns in 5x5
+                    if {bingo.tile.1.%loop-player's uuid%} and {bingo.tile.6.%loop-player's uuid%} and {bingo.tile.11.%loop-player's uuid%} and {bingo.tile.16.%loop-player's uuid%} and {bingo.tile.21.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.2.%loop-player's uuid%} and {bingo.tile.7.%loop-player's uuid%} and {bingo.tile.12.%loop-player's uuid%} and {bingo.tile.17.%loop-player's uuid%} and {bingo.tile.22.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.3.%loop-player's uuid%} and {bingo.tile.8.%loop-player's uuid%} and {bingo.tile.13.%loop-player's uuid%} and {bingo.tile.18.%loop-player's uuid%} and {bingo.tile.23.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.4.%loop-player's uuid%} and {bingo.tile.9.%loop-player's uuid%} and {bingo.tile.14.%loop-player's uuid%} and {bingo.tile.19.%loop-player's uuid%} and {bingo.tile.24.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.5.%loop-player's uuid%} and {bingo.tile.10.%loop-player's uuid%} and {bingo.tile.15.%loop-player's uuid%} and {bingo.tile.20.%loop-player's uuid%} and {bingo.tile.25.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    #now checking for finished diagonals in 5x5
+                    if {bingo.tile.1.%loop-player's uuid%} and {bingo.tile.7.%loop-player's uuid%} and {bingo.tile.13.%loop-player's uuid%} and {bingo.tile.19.%loop-player's uuid%} and {bingo.tile.25.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                    if {bingo.tile.5.%loop-player's uuid%} and {bingo.tile.9.%loop-player's uuid%} and {bingo.tile.13.%loop-player's uuid%} and {bingo.tile.17.%loop-player's uuid%} and {bingo.tile.21.%loop-player's uuid%} = true:
+                        set {bingo.finish} to true
+                        set {bingo.finish.player} to loop-player
+                if {bingo.finish} = true: # if a win condition is met
+                    set {bingo.finish} to false
+                    set {timer.status} to "Hub"
+                    make console execute command "tellraw @a [{""text"":""[""},{""text"":""👑"",""bold"":""true"",""color"":""yellow""},{""text"":""] "",""color"":""white""},{""translate"":""%%nox_uuid%%%{bingo.finish.player}'s uuid%,false,0,0,1.0""},{""text"":"" %{bingo.finish.player}% has won the Classic bingo with a %{bingo.size}%x%{bingo.size}% board with %{timer.m}% minutes and %{timer.s}% seconds left !""}]"
+                    teleport all players to location(-193.5,86,-99.5, world "world")
+                    clear all players's inventory
+                    set game mode of all players to adventure
+                    feed all players
+                    heal all players

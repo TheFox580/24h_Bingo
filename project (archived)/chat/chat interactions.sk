@@ -1,0 +1,9 @@
+on join:
+    set join message to ""
+    make console execute command "tellraw @a [{""text"":""[""},{""text"":""+"",""bold"":""true"",""color"":""green""},{""text"":""] "",""color"":""white""},{""translate"":""%%nox_uuid%%%player's uuid%,false,0,0,1.0""},{""text"":"" %player%""}]"
+
+#Function displayMessage(p:player,m:string):
+#    make console execute command "tellraw @a [{""translate"":""%%nox_uuid%%%{_p}'s uuid%,false,0,0,1.0""},{""text"":"" %{_p}%: %{_m}%""}]"
+
+on chat:
+    # Because this function doesn't work (Skript problem not mine), this has been moved to a custom java plugin , please remove "cancel event" to have chat messages or make your own custom java plugin to have custom messages : displayMessage(player,message)

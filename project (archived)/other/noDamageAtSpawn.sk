@@ -1,0 +1,3 @@
+on damage:
+    if {timer.status} != "Game":
+        cancel event

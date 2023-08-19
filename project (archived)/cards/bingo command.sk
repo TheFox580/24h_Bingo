@@ -1,0 +1,465 @@
+Function openTimeLimitMenu(p:player):
+    create a gui with virtual chest inventory with 3 rows named "Time limit menu":
+        make gui slot 13 with clock named "&rCheck time limit on the right"
+        make gui slot 12 with red stained glass pane named "&r&c- 1 second":
+            remove 1 from {timer.s}
+            if {timer.s} < 0:
+                remove 1 from {timer.m}
+                add 60 to {timer.s}
+        make gui slot 11 with red stained glass pane named "&r&c- 10 seconds":
+            remove 10 from {timer.s}
+            if {timer.s} < 0:
+                remove 1 from {timer.m}
+                add 60 to {timer.s}
+        make gui slot 10 with red stained glass pane named "&r&c- 1 minute":
+            remove 1 from {timer.m}
+        make gui slot 9 with red stained glass pane named "&r&c- 10 minutes":
+            remove 10 from {timer.m}
+        make gui slot 14 with lime stained glass pane named "&r&a+ 1 second":
+            add 1 to {timer.s}
+            if {timer.s} > 59:
+                add 1 to {timer.m}
+                remove 60 from {timer.s}
+        make gui slot 15 with lime stained glass pane named "&r&a+ 10 seconds":
+            add 10 to {timer.s}
+            if {timer.s} > 59:
+                add 1 to {timer.m}
+                remove 60 from {timer.s}
+        make gui slot 16 with lime stained glass pane named "&r&a+ 1 minute":
+            add 1 to {timer.m}
+        make gui slot 17 with lime stained glass pane named "&r&a+ 10 minutes":
+            add 10 to {timer.m}
+        make gui slot 26 with barrier named "&r&cClose menu":
+            close {_p}'s inventory
+            make {_p} execute command "bingo start"
+    open the last gui for {_p}
+
+Function openCardSizeMenu(p:player):
+    create a gui with virtual chest inventory with 3 rows named "Card size menu":
+        make gui slot 11 with paper named "&rSize : 3 x 3":
+            set {bingo.size} to 3
+        make gui slot 13 with paper named "&rSize : 4 x 4":
+            set {bingo.size} to 4
+        make gui slot 15 with paper named "&rSize : 5 x 5":
+            set {bingo.size} to 5
+        make gui slot 18 with red stained glass pane named "&r&cReset":
+            clear {bingo.size}
+        make gui slot 26 with barrier named "&r&cClose menu":
+            close {_p}'s inventory
+            make {_p} execute command "bingo start"
+    open the last gui for {_p}   
+
+Function openGameModeMenu(p:player):
+    create a gui with virtual chest inventory with 3 rows named "Game mode menu":
+        make gui slot 11 with paper named "&rClassic":
+            set {bingo.mode} to "Classic"
+        make gui slot 15 with paper named "&rLockout":
+            set {bingo.mode} to "Lockout"
+        make gui slot 26 with barrier named "&r&cClose menu":
+            close {_p}'s inventory
+            make {_p} execute command "bingo start"
+    open the last gui for {_p}
+
+Function openMapSizeMenu(p:player):
+    create a gui with virtual chest inventory with 3 rows named "Map Size menu":
+        make gui slot 10 with compass named "&r500x500":
+            set {bingo.mapsize} to 500
+        make gui slot 12 with compass named "&r1000x1000":
+            set {bingo.mapsize} to 1000
+        make gui slot 14 with compass named "&r5000x5000":
+            set {bingo.mapsize} to 5000
+        make gui slot 16 with compass named "&r10000x10000":
+            set {bingo.mapsize} to 10000
+        make gui slot 26 with barrier named "&r&cClose menu":
+            close {_p}'s inventory
+            make {_p} execute command "bingo start"
+    open the last gui for {_p}
+
+Function openCardSize3(p:player):
+    if {timer.status} != "Hub":
+        create a gui with virtual chest inventory with 3 rows named "Your bingo card":
+            if {bingo.tile.1.%{_p}'s uuid%} = false:
+                make gui slot 3 with red stained glass pane named "&r%{bingo.tile.1}%"
+            else:
+                make gui slot 3 with lime stained glass pane named "&r%{bingo.tile.1}%"
+            if {bingo.tile.2.%{_p}'s uuid%} = false:
+                make gui slot 4 with red stained glass pane named "&r%{bingo.tile.2}%"
+            else:
+                make gui slot 4 with lime stained glass pane named "&r%{bingo.tile.2}%"
+            if {bingo.tile.3.%{_p}'s uuid%} = false:
+                make gui slot 5 with red stained glass pane named "&r%{bingo.tile.3}%"
+            else:
+                make gui slot 5 with lime stained glass pane named "&r%{bingo.tile.3}%"
+            if {bingo.tile.4.%{_p}'s uuid%} = false:
+                make gui slot 12 with red stained glass pane named "&r%{bingo.tile.4}%"
+            else:
+                make gui slot 12 with lime stained glass pane named "&r%{bingo.tile.4}%"
+            if {bingo.tile.5.%{_p}'s uuid%} = false:
+                make gui slot 13 with red stained glass pane named "&r%{bingo.tile.5}%"
+            else:
+                make gui slot 13 with lime stained glass pane named "&r%{bingo.tile.5}%"
+            if {bingo.tile.6.%{_p}'s uuid%} = false:
+                make gui slot 14 with red stained glass pane named "&r%{bingo.tile.6}%"
+            else:
+                make gui slot 14 with lime stained glass pane named "&r%{bingo.tile.6}%"
+            if {bingo.tile.7.%{_p}'s uuid%} = false:
+                make gui slot 21 with red stained glass pane named "&r%{bingo.tile.7}%"
+            else:
+                make gui slot 21 with lime stained glass pane named "&r%{bingo.tile.7}%"
+            if {bingo.tile.8.%{_p}'s uuid%} = false:
+                make gui slot 22 with red stained glass pane named "&r%{bingo.tile.8}%"
+            else:
+                make gui slot 22 with lime stained glass pane named "&r%{bingo.tile.8}%"
+            if {bingo.tile.9.%{_p}'s uuid%} = false:
+                make gui slot 23 with red stained glass pane named "&r%{bingo.tile.9}%"
+            else:
+                make gui slot 23 with lime stained glass pane named "&r%{bingo.tile.9}%"
+    else:
+        create a gui with virtual chest inventory with 3 rows named "Fake bingo card":
+            make gui slot 3 with red stained glass pane named "&rAction not completed"
+            make gui slot 4 with lime stained glass pane named "&rAction completed"
+            make gui slot 5 with red stained glass pane named "&rAction not completed"
+            make gui slot 12 with red stained glass pane named "&rAction not completed"
+            make gui slot 13 with red stained glass pane named "&rAction not completed"
+            make gui slot 14 with lime stained glass pane named "&rAction completed"
+            make gui slot 21 with lime stained glass pane named "&rAction completed"
+            make gui slot 22 with lime stained glass pane named "&rAction completed"
+            make gui slot 23 with red stained glass pane named "&rAction not completed"
+    open the last gui for {_p}
+
+Function openCardSize4(p:player):
+    if {timer.status} != "Hub":
+        create a gui with virtual chest inventory with 4 rows named "Your bingo card":
+            if {bingo.tile.1.%{_p}'s uuid%} = false:
+                make gui slot 2 with red stained glass pane named "&r%{bingo.tile.1}%"
+            else:
+                make gui slot 2 with lime stained glass pane named "&r%{bingo.tile.1}%"
+            if {bingo.tile.2.%{_p}'s uuid%} = false:
+                make gui slot 3 with red stained glass pane named "&r%{bingo.tile.2}%"
+            else:
+                make gui slot 3 with lime stained glass pane named "&r%{bingo.tile.2}%"
+            make gui slot 4 with black stained glass pane named "&rFree tile - Column doesn't count"
+            if {bingo.tile.3.%{_p}'s uuid%} = false:
+                make gui slot 5 with red stained glass pane named "&r%{bingo.tile.3}%"
+            else:
+                make gui slot 5 with lime stained glass pane named "&r%{bingo.tile.3}%"
+            if {bingo.tile.4.%{_p}'s uuid%} = false:
+                make gui slot 6 with red stained glass pane named "&r%{bingo.tile.4}%"
+            else:
+                make gui slot 6 with lime stained glass pane named "&r%{bingo.tile.4}%"
+            if {bingo.tile.5.%{_p}'s uuid%} = false:
+                make gui slot 11 with red stained glass pane named "&r%{bingo.tile.5}%"
+            else:
+                make gui slot 11 with lime stained glass pane named "&r%{bingo.tile.5}%"
+            if {bingo.tile.6.%{_p}'s uuid%} = false:
+                make gui slot 12 with red stained glass pane named "&r%{bingo.tile.6}%"
+            else:
+                make gui slot 12 with lime stained glass pane named "&r%{bingo.tile.6}%"
+            make gui slot 13 with black stained glass pane named "&rFree tile - Column doesn't count"
+            if {bingo.tile.7.%{_p}'s uuid%} = false:
+                make gui slot 14 with red stained glass pane named "&r%{bingo.tile.7}%"
+            else:
+                make gui slot 14 with lime stained glass pane named "&r%{bingo.tile.7}%"
+            if {bingo.tile.8.%{_p}'s uuid%} = false:
+                make gui slot 15 with red stained glass pane named "&r%{bingo.tile.8}%"
+            else:
+                make gui slot 15 with lime stained glass pane named "&r%{bingo.tile.8}%"
+            if {bingo.tile.9.%{_p}'s uuid%} = false:
+                make gui slot 20 with red stained glass pane named "&r%{bingo.tile.9}%"
+            else:
+                make gui slot 20 with lime stained glass pane named "&r%{bingo.tile.9}%"
+            if {bingo.tile.10.%{_p}'s uuid%} = false:
+                make gui slot 21 with red stained glass pane named "&r%{bingo.tile.10}%"
+            else:
+                make gui slot 21 with lime stained glass pane named "&r%{bingo.tile.10}%"
+            make gui slot 22 with black stained glass pane named "&rFree tile - Column doesn't count"
+            if {bingo.tile.11.%{_p}'s uuid%} = false:
+                make gui slot 23 with red stained glass pane named "&r%{bingo.tile.11}%"
+            else:
+                make gui slot 23 with lime stained glass pane named "&r%{bingo.tile.11}%"
+            if {bingo.tile.12.%{_p}'s uuid%} = false:
+                make gui slot 24 with red stained glass pane named "&r%{bingo.tile.12}%"
+            else:
+                make gui slot 24 with lime stained glass pane named "&r%{bingo.tile.12}%"
+            if {bingo.tile.13.%{_p}'s uuid%} = false:
+                make gui slot 29 with red stained glass pane named "&r%{bingo.tile.13}%"
+            else:
+                make gui slot 29 with lime stained glass pane named "&r%{bingo.tile.13}%"
+            if {bingo.tile.14.%{_p}'s uuid%} = false:
+                make gui slot 30 with red stained glass pane named "&r%{bingo.tile.14}%"
+            else:
+                make gui slot 30 with lime stained glass pane named "&r%{bingo.tile.14}%"
+            make gui slot 31 with black stained glass pane named "&rFree tile - Column doesn't count"
+            if {bingo.tile.15.%{_p}'s uuid%} = false:
+                make gui slot 32 with red stained glass pane named "&r%{bingo.tile.15}%"
+            else:
+                make gui slot 32 with lime stained glass pane named "&r%{bingo.tile.15}%"
+            if {bingo.tile.16.%{_p}'s uuid%} = false:
+                make gui slot 33 with red stained glass pane named "&r%{bingo.tile.16}%"
+            else:
+                make gui slot 33 with lime stained glass pane named "&r%{bingo.tile.16}%"
+    else:
+        create a gui with virtual chest inventory with 4 rows named "Fake bingo card":
+            make gui slot 2 with red stained glass pane named "&rAction not completed"
+            make gui slot 3 with lime stained glass pane named "&rAction completed"
+            make gui slot 4 with black stained glass pane named "&rFree tile - Column doesn't count"
+            make gui slot 5 with red stained glass pane named "&rAction not completed"
+            make gui slot 6 with red stained glass pane named "&rAction not completed"
+            make gui slot 11 with red stained glass pane named "&rAction not completed"
+            make gui slot 12 with red stained glass pane named "&rAction not completed"
+            make gui slot 13 with black stained glass pane named "&rFree tile - Column doesn't count"
+            make gui slot 14 with lime stained glass pane named "&rAction completed"
+            make gui slot 15 with lime stained glass pane named "&rAction completed"
+            make gui slot 20 with lime stained glass pane named "&rAction completed"
+            make gui slot 21 with lime stained glass pane named "&rAction completed"
+            make gui slot 22 with black stained glass pane named "&rFree tile - Column doesn't count"
+            make gui slot 23 with red stained glass pane named "&rAction not completed"
+            make gui slot 24 with red stained glass pane named "&rAction not completed"
+            make gui slot 29 with lime stained glass pane named "&rAction completed"
+            make gui slot 30 with red stained glass pane named "&rAction not completed"
+            make gui slot 31 with black stained glass pane named "&rFree tile - Column doesn't count"
+            make gui slot 32 with lime stained glass pane named "&rAction completed"
+            make gui slot 33 with red stained glass pane named "&rAction not completed"
+    open the last gui for {_p}
+
+Function openCardSize5(p:player):
+    if {timer.status} != "Hub":
+        create a gui with virtual chest inventory with 5 rows named "Your bingo card":
+            if {bingo.tile.1.%{_p}'s uuid%} = false:
+                make gui slot 2 with red stained glass pane named "&r%{bingo.tile.1}%"
+            else:
+                make gui slot 2 with lime stained glass pane named "&r%{bingo.tile.1}%"
+            if {bingo.tile.2.%{_p}'s uuid%} = false:
+                make gui slot 3 with red stained glass pane named "&r%{bingo.tile.2}%"
+            else:
+                make gui slot 3 with lime stained glass pane named "&r%{bingo.tile.2}%"
+            if {bingo.tile.3.%{_p}'s uuid%} = false:
+                make gui slot 4 with red stained glass pane named "&r%{bingo.tile.3}%"
+            else:
+                make gui slot 4 with lime stained glass pane named "&r%{bingo.tile.3}%"
+            if {bingo.tile.4.%{_p}'s uuid%} = false:
+                make gui slot 5 with red stained glass pane named "&r%{bingo.tile.4}%"
+            else:
+                make gui slot 5 with lime stained glass pane named "&r%{bingo.tile.4}%"
+            if {bingo.tile.5.%{_p}'s uuid%} = false:
+                make gui slot 6 with red stained glass pane named "&r%{bingo.tile.5}%"
+            else:
+                make gui slot 6 with lime stained glass pane named "&r%{bingo.tile.5}%"
+            if {bingo.tile.6.%{_p}'s uuid%} = false:
+                make gui slot 11 with red stained glass pane named "&r%{bingo.tile.6}%"
+            else:
+                make gui slot 11 with lime stained glass pane named "&r%{bingo.tile.6}%"
+            if {bingo.tile.7.%{_p}'s uuid%} = false:
+                make gui slot 12 with red stained glass pane named "&r%{bingo.tile.7}%"
+            else:
+                make gui slot 12 with lime stained glass pane named "&r%{bingo.tile.7}%"
+            if {bingo.tile.8.%{_p}'s uuid%} = false:
+                make gui slot 13 with red stained glass pane named "&r%{bingo.tile.8}%"
+            else:
+                make gui slot 13 with lime stained glass pane named "&r%{bingo.tile.8}%"
+            if {bingo.tile.9.%{_p}'s uuid%} = false:
+                make gui slot 14 with red stained glass pane named "&r%{bingo.tile.9}%"
+            else:
+                make gui slot 14 with lime stained glass pane named "&r%{bingo.tile.9}%"
+            if {bingo.tile.10.%{_p}'s uuid%} = false:
+                make gui slot 15 with red stained glass pane named "&r%{bingo.tile.10}%"
+            else:
+                make gui slot 15 with lime stained glass pane named "&r%{bingo.tile.10}%"
+            if {bingo.tile.11.%{_p}'s uuid%} = false:
+                make gui slot 20 with red stained glass pane named "&r%{bingo.tile.11}%"
+            else:
+                make gui slot 20 with lime stained glass pane named "&r%{bingo.tile.11}%"
+            if {bingo.tile.12.%{_p}'s uuid%} = false:
+                make gui slot 21 with red stained glass pane named "&r%{bingo.tile.12}%"
+            else:
+                make gui slot 21 with lime stained glass pane named "&r%{bingo.tile.12}%"
+            if {bingo.tile.13.%{_p}'s uuid%} = false:
+                make gui slot 22 with red stained glass pane named "&r%{bingo.tile.13}%"
+            else:
+                make gui slot 22 with lime stained glass pane named "&r%{bingo.tile.13}%"
+            if {bingo.tile.14.%{_p}'s uuid%} = false:
+                make gui slot 23 with red stained glass pane named "&r%{bingo.tile.14}%"
+            else:
+                make gui slot 23 with lime stained glass pane named "&r%{bingo.tile.14}%"
+            if {bingo.tile.15.%{_p}'s uuid%} = false:
+                make gui slot 24 with red stained glass pane named "&r%{bingo.tile.15}%"
+            else:
+                make gui slot 24 with lime stained glass pane named "&r%{bingo.tile.15}%"
+            if {bingo.tile.16.%{_p}'s uuid%} = false:
+                make gui slot 29 with red stained glass pane named "&r%{bingo.tile.16}%"
+            else:
+                make gui slot 29 with lime stained glass pane named "&r%{bingo.tile.16}%"
+            if {bingo.tile.17.%{_p}'s uuid%} = false:
+                make gui slot 30 with red stained glass pane named "&r%{bingo.tile.17}%"
+            else:
+                make gui slot 30 with lime stained glass pane named "&r%{bingo.tile.17}%"
+            if {bingo.tile.18.%{_p}'s uuid%} = false:
+                make gui slot 31 with red stained glass pane named "&r%{bingo.tile.18}%"
+            else:
+                make gui slot 31 with lime stained glass pane named "&r%{bingo.tile.18}%"
+            if {bingo.tile.19.%{_p}'s uuid%} = false:
+                make gui slot 32 with red stained glass pane named "&r%{bingo.tile.19}%"
+            else:
+                make gui slot 32 with lime stained glass pane named "&r%{bingo.tile.19}%"
+            if {bingo.tile.20.%{_p}'s uuid%} = false:
+                make gui slot 33 with red stained glass pane named "&r%{bingo.tile.20}%"
+            else:
+                make gui slot 33 with lime stained glass pane named "&r%{bingo.tile.20}%"
+            if {bingo.tile.21.%{_p}'s uuid%} = false:
+                make gui slot 38 with red stained glass pane named "&r%{bingo.tile.21}%"
+            else:
+                make gui slot 38 with lime stained glass pane named "&r%{bingo.tile.21}%"
+            if {bingo.tile.22.%{_p}'s uuid%} = false:
+                make gui slot 39 with red stained glass pane named "&r%{bingo.tile.22}%"
+            else:
+                make gui slot 39 with lime stained glass pane named "&r%{bingo.tile.22}%"
+            if {bingo.tile.23.%{_p}'s uuid%} = false:
+                make gui slot 40 with red stained glass pane named "&r%{bingo.tile.23}%"
+            else:
+                make gui slot 40 with lime stained glass pane named "&r%{bingo.tile.23}%"
+            if {bingo.tile.24.%{_p}'s uuid%} = false:
+                make gui slot 41 with red stained glass pane named "&r%{bingo.tile.24}%"
+            else:
+                make gui slot 41 with lime stained glass pane named "&r%{bingo.tile.24}%"
+            if {bingo.tile.25.%{_p}'s uuid%} = false:
+                make gui slot 42 with red stained glass pane named "&r%{bingo.tile.25}%"
+            else:
+                make gui slot 42 with lime stained glass pane named "&r%{bingo.tile.25}%"
+    else:
+        create a gui with virtual chest inventory with 5 rows named "Fake bingo card":
+            make gui slot 2 with lime stained glass pane named "&rAction completed"
+            make gui slot 3 with lime stained glass pane named "&rAction completed"
+            make gui slot 4 with lime stained glass pane named "&rAction completed"
+            make gui slot 5 with red stained glass pane named "&rAction not completed"
+            make gui slot 6 with red stained glass pane named "&rAction not completed"
+            make gui slot 11 with lime stained glass pane named "&rAction completed"
+            make gui slot 12 with red stained glass pane named "&rAction not completed"
+            make gui slot 13 with red stained glass pane named "&rAction not completed"
+            make gui slot 14 with lime stained glass pane named "&rAction completed"
+            make gui slot 15 with red stained glass pane named "&rAction not completed"
+            make gui slot 20 with lime stained glass pane named "&rAction completed"
+            make gui slot 21 with lime stained glass pane named "&rAction completed"
+            make gui slot 22 with lime stained glass pane named "&rAction completed"
+            make gui slot 23 with red stained glass pane named "&rAction not completed"
+            make gui slot 24 with red stained glass pane named "&rAction not completed"
+            make gui slot 29 with lime stained glass pane named "&rAction completed"
+            make gui slot 30 with red stained glass pane named "&rAction not completed"
+            make gui slot 31 with red stained glass pane named "&rAction not completed"
+            make gui slot 32 with lime stained glass pane named "&rAction completed"
+            make gui slot 33 with red stained glass pane named "&rAction not completed"
+            make gui slot 38 with lime stained glass pane named "&rAction completed"
+            make gui slot 39 with red stained glass pane named "&rAction not completed"
+            make gui slot 40 with red stained glass pane named "&rAction not completed"
+            make gui slot 41 with lime stained glass pane named "&rAction completed"
+            make gui slot 42 with red stained glass pane named "&rAction not completed"
+    open the last gui for {_p}
+
+command /bingo <text>:
+    trigger:
+        if arg-1 = "card":
+            if {bingo.size} = 3:
+                openCardSize3(player)
+            if {bingo.size} = 4:
+                openCardSize4(player)
+            if {bingo.size} = 5:
+                openCardSize5(player)
+        else:
+            if player doesn't have permission "*":
+                send "You do not have the permissions to execute any commands exept ""/bingo card"""
+            else:
+                if arg-1 = "start":
+                    set {bingo.completed.game} to 0
+                    loop all players:
+                        set {bingo.completed.%loop-player's uuid%.game} to 0
+                    if {timer.m} is not set:
+                        set {timer.m} to 0
+                    if {timer.s} is not set:
+                        set {timer.s} to 0
+                    create a gui with virtual chest inventory with 3 rows named "Menu":
+                        make gui slot 11 with clock named "&rTime limit":
+                            openTimeLimitMenu(player)
+                        make gui slot 12 with paper named "&rSize of the card":
+                            openCardSizeMenu(player)
+                        make gui slot 13 with lime concrete named "&rStart game":
+                            close player's inventory
+                            set {bingo.finish} to false
+                            clear {bingo.finish.player}
+                            loop {actions::*}:
+                                set {action.%loop-value%} to false
+                            loop all players:
+                                set {_deaths.%loop-player%} to 0
+                            loop {bingo.size}*{bingo.size} times:
+                                clear {bingo.tile.%loop-value%}
+                                loop all players:
+                                    set {bingo.tile.%loop-value-1%.%loop-player's uuid%} to false
+                            loop {bingo.size}*{bingo.size} times:
+                                set {_random} to a random integer between 1 and 50
+                                if {action.%{_random}%} = false:
+                                    set {bingo.tile.%loop-value%} to {actions::%{_random}%} # Set the name of the action to the tile (so that the players know which action they have to do)
+                                    set {action.%{_random}%} to true # Action can be done
+                                    loop all players:
+                                        set {action.%{_random}%.%loop-player's uuid%} to false # Player has not done the action yet
+                                        set {bingo.tile.%loop-value-1%.%loop-player's uuid%} to false
+                                else:
+                                    set {_random} to a random integer between 1 and 50
+                                    set {bingo.tile.%loop-value%} to {actions::%{_random}%} # Set the name of the action to the tile (so that the players know which action they have to do)
+                                    set {action.%{_random}%} to true # Action can be done
+                                    loop all players:
+                                        set {action.%{_random}%.%loop-player's uuid%} to false # Player has not done the action yet
+                                        set {bingo.tile.%loop-value-1%.%loop-player's uuid%} to false
+                            set {timer.status} to "Starting"
+                            wait 1 second
+                            send title "Bingo starting in" with subtitle "5" to all players
+                            wait 1 second
+                            send title "Bingo starting in" with subtitle "4" to all players
+                            wait 1 second
+                            send title "Bingo starting in" with subtitle "3" to all players
+                            wait 1 second
+                            send title "Bingo starting in" with subtitle "2" to all players
+                            wait 1 second
+                            send title "Bingo starting in" with subtitle "1" to all players
+                            wait 1 second
+                            send title "Bingo starting in" with subtitle "0" to all players
+                            set {timer.status} to "Game"
+                            give 64 of steak to all players
+                            loop all players:
+                                if {bingo.mapsize} = 500:
+                                    set {_x.tp} to a random number between -500 and 500
+                                    set {_z.tp} to a random number between -500 and 500
+                                if {bingo.mapsize} = 1000:
+                                    set {_x.tp} to a random number between -1000 and 1000
+                                    set {_z.tp} to a random number between -1000 and 1000
+                                if {bingo.mapsize} = 5000:
+                                    set {_x.tp} to a random number between -5000 and 5000
+                                    set {_z.tp} to a random number between -5000 and 5000
+                                if {bingo.mapsize} = 10000:
+                                    set {_x.tp} to a random number between -10000 and 10000
+                                    set {_z.tp} to a random number between -10000 and 10000
+                                teleport loop-player to location({_x.tp},320,{_z.tp})
+                                set game mode of loop-player to survival
+                        make gui slot 14 with grass block named "&rGame mode":
+                            openGameModeMenu(player)
+                        make gui slot 15 with compass block named "&rMap size":
+                            openMapSizeMenu(player)
+                        open the last gui for the player
+
+
+command /add <text>:
+    permission: *
+    trigger:
+        if arg-1 = "see":
+            loop {actions::*}:
+                send "Action %loop-index% : %loop-value%"
+        else:
+            add arg-1 to {actions::*}
+            send "Action added : %arg-1%"
+
+command /see <int>:
+    trigger:
+        send "Action %arg-1% : %{actions::%arg-1%}%"
+
+command /remove <int>:
+    permission: *
+    trigger:
+        send "Action : %{actions::%arg-1%}% removed !"
+        clear {actions::%arg-1%}
