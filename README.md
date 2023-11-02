@@ -9,6 +9,7 @@ Please know how to install Skript files into your minecraft server to play.
 
 ### How to install and start the game :
 
+- **DOWNLOAD THE LASTEST VERSION OF [1.20.1 PAPER](https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/196/downloads/paper-1.20.1-196.jar)**
 - Download the repository (Click on the green "Code" button, then "Download ZIP"), [Skript](https://github.com/SkriptLang/Skript/releases), [SkBee](https://github.com/ShaneBeee/SkBee/releases) and [Skript GUI](https://github.com/APickledWalrus/skript-gui/releases)
 - *Optional : Install the Custom Bingo Plugin for a modified chat by subscribing to the [Ko-fi](https://ko-fi.com/thefox580)*
 - Extract the /scripts folder outside of the downloaded .ZIP file
